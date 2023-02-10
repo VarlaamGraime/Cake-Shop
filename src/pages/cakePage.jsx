@@ -4,7 +4,7 @@ import defaultCake from '../assets/defaultCake.png'
 import BigStar from '../assets/BigStar.png'
 
 
-const cakePage = () => {
+const CakePage = () => {
     const cake = { id: 1, name: 'Наполеон', price: 1000, rating: 5, img: 'https://ru.pngtree.com/freepng/dessert-cake-gourmet-hand-drawn-elements_5755627.html' }
     const description = [
         { id: 1, title: 'Высота торта', description: '20см' },
@@ -61,4 +61,4 @@ const cakePage = () => {
     );
 };
 
-export default cakePage;
+export default CakePage;

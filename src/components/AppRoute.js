@@ -8,7 +8,6 @@ import { Context } from '../index';
 
 const AppRoute = () => {
     const { user } = useContext(Context)
-    console.log(user)
 
     return (
         <Routes>
