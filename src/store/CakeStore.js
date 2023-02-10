@@ -12,15 +12,18 @@ export default class CakeStore {
         this._brands = [
             { id: 1, name: 'Шоколадные' },
             { id: 2, name: 'Кремовые' },
-            { id: 2, name: 'Вафельные' },
-            { id: 2, name: 'Солёные' },
+            { id: 3, name: 'Вафельные' },
+            { id: 4, name: 'Солёные' },
 
         ]
         this._cakes = [
-            { id: 1, name: 'Наполеон', price: 1000, rating: 5 },
+            { id: 1, name: 'Наполеон', price: 1000, rating: 5, img: 'https://ru.pngtree.com/freepng/dessert-cake-gourmet-hand-drawn-elements_5755627.html' },
             { id: 2, name: 'Картошка', price: 1000, rating: 5 },
             { id: 3, name: 'Прага', price: 1000, rating: 5 },
             { id: 4, name: 'Кремовый', price: 1000, rating: 5 },
+            { id: 5, name: 'Томатный', price: 1000, rating: 5 },
+            { id: 6, name: 'Желейный', price: 1000, rating: 5 },
+
 
         ]
         this._selectedType = {}
@@ -63,7 +66,7 @@ export default class CakeStore {
         return this._selectedType
     }
 
-    get setSelectedBrand() {
+    get selectedBrand() {
         return this._selectedBrand
     }
 }
