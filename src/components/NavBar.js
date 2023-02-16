@@ -4,7 +4,7 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import { NavLink, useNavigate } from 'react-router-dom';
-import { LOGIN_ROUTE, SHOP_ROUTE, ADMIN_ROUTE } from '../utils/consts';
+import { LOGIN_ROUTE, SHOP_ROUTE, ADMIN_ROUTE, CONSTR } from '../utils/consts';
 import { Button } from 'react-bootstrap';
 import { observer } from 'mobx-react-lite';
 
@@ -20,6 +20,8 @@ const NavBar = observer(() => {
         <Navbar bg="dark" variant="dark">
             <Container className=' '>
                 <NavLink style={{ color: "white", textDecoration: 'none' }} to={SHOP_ROUTE}>ТортЕки</NavLink>
+                <NavLink style={{ color: "white", textDecoration: 'none' }} to={CONSTR}>Конструктор Тортиков</NavLink>
+
                 {user.isAuth ?
 
                     <Nav className="ml-auto" style={{ color: "white" }}>

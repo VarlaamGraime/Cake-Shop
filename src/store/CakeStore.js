@@ -17,7 +17,7 @@ export default class CakeStore {
 
         ]
         this._cakes = [
-            { id: 1, name: 'Наполеон', price: 1000, rating: 5, img: 'https://ru.pngtree.com/freepng/dessert-cake-gourmet-hand-drawn-elements_5755627.html' },
+            { id: 1, name: 'Наполеон', price: 1000, rating: 5 },
             { id: 2, name: 'Картошка', price: 1000, rating: 5 },
             { id: 3, name: 'Прага', price: 1000, rating: 5 },
             { id: 4, name: 'Кремовый', price: 1000, rating: 5 },
