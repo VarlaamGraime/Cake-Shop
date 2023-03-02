@@ -15,6 +15,7 @@ const CreateCake = ({ show, onHide }) => {
     const removeInfo = (number) => {
         setInfo(info.filter(i => i.number !== number))
     }
+
     return (
         <Modal
             show={show}
@@ -64,6 +65,8 @@ const CreateCake = ({ show, onHide }) => {
                         onClick={addInfo}
                     >Добавить новую характеристику
                     </Button>
+
+
                     {info.map(i =>
                         <Row className='mt-4' key={i.number}>
                             <Col md={4}>

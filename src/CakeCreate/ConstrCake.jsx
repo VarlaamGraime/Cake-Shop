@@ -12,10 +12,7 @@ const ConstrCake = () => {
         border-secondary 
         bg-light
        '
-                style={{ width: 400, height: 300 }}>
-                <CarCake />
-                {/* <CarDressCake /> */}
-                <CarCake />
+                style={{ width: 400, height: 350 }}>
                 <CarCake />
             </Card>
         </Container>

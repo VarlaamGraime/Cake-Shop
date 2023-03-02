@@ -5,12 +5,9 @@ import { Context } from '../index'
 
 
 const EditCake = () => {
-    const { layers } = useContext(Context)
-    const [lay, setLay] = useState([])
 
-    const addLay = () => {
-        setLay([])
-    }
+    const { layers } = useContext(Context)
+
 
     return (
 
@@ -20,7 +17,7 @@ const EditCake = () => {
         border-secondary 
         bg-light
        '
-                style={{ width: 300, height: 300 }}>
+                style={{ width: 300, height: 350 }}>
 
                 <h5 className='text-center '>Редактироть торт</h5>
                 <Form className='mt-2 mx-3 justify-content-between align-items-center '>
@@ -35,7 +32,7 @@ const EditCake = () => {
                         <Button
                             className='mx-2 ml-2'
                             variant='outline-success '
-                            onClick={addLay}
+
                         >Добавить</Button>
 
                     </Dropdown>

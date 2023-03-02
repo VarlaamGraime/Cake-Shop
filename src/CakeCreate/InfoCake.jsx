@@ -15,7 +15,7 @@ const InfoCake = () => {
     border-secondary 
     bg-light
    '
-                style={{ width: 300, height: 300 }}>
+                style={{ width: 300, height: 350 }}>
                 <div className=' mt-4'>
                     <h5 className=' text-center'> Слой нэйм</h5>
                 </div>
