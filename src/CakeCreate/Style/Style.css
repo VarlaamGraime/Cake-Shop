@@ -15,4 +15,9 @@
     margin-top: -55px
 }
 
-.width-car-contr {}
+.margin-tool {
+    margin-left: 200px;
+    position: absolute;
+    border: solid 1px black;
+    margin-bottom: 30px;
+}
