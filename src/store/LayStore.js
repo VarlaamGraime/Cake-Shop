@@ -1,16 +1,22 @@
 import { makeAutoObservable } from 'mobx';
+import br from '../assets/br.png'
+import pink from '../assets/pink.png'
+import yel from '../assets/yel.png'
+import dressing from '../assets/dressing.png'
+import dressingPink from '../assets/dressingPink.png'
+import dressBanana from '../assets/dressBanana.png'
 
 export default class LayStore {
     constructor() {
         this._layers = [
-            { id: 1, name: 'Банановый' },
-            { id: 2, name: 'Сдобный' },
-            { id: 3, name: 'Малиновый' }
+            { id: 1, name: 'Банановый', pic: { br } },
+            { id: 2, name: 'Сдобный', pic: { pink } },
+            { id: 3, name: 'Малиновый', pic: { yel } }
 
         ]
         this._creams = [
-            { id: 1, name: 'Ванильный' },
-            { id: 2, name: 'Карамельный' }
+            { id: 1, name: 'Ванильный', pic: { dressing } },
+            { id: 2, name: 'Карамельный', pic: [dressBanana] }
 
         ]
 

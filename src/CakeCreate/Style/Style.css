@@ -16,8 +16,14 @@
 }
 
 .margin-tool {
-    margin-left: 200px;
+    margin-left: -28.6em;
+    margin-top: 3.15em;
     position: absolute;
-    border: solid 1px black;
+    border: dashed 2px rgb(1, 114, 26);
     margin-bottom: 30px;
+    border-radius: 10px;
+}
+
+.rightBox {
+    margin-left: 2em;
 }
