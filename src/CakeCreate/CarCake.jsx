@@ -1,4 +1,4 @@
-import { React, useState } from 'react';
+import { React, useState, useRef } from 'react';
 import Carousel from 'react-bootstrap/Carousel';
 import br from '../assets/br.png'
 import pink from '../assets/pink.png'
@@ -24,11 +24,8 @@ const CarCake = () => {
         setCakeArr(cakeArr.filter(i => i.number !== number))
     }
 
-
-    const removeCake2 = (number) => {
-        setCakeArr(cakeArr.pop())
-    }
-
+    const [show, setShow] = useState(false);
+    const target = useRef(null);
 
 
 
@@ -46,9 +43,9 @@ const CarCake = () => {
 
                 <div className='margin-lay '>
 
-                    <Carousel className=' carousel-fade  p-2 position-relative   zIn margin-dress' variant="dark" indicators={false}  >
+                    <Carousel className='p-2 position-relative   zIn margin-dress' variant="dark" indicators={false}  >
 
-                        <Carousel.Item interval={99999999} style={{ cursor: ' pointer' }}  >
+                        <Carousel.Item interval={99999999} style={{ cursor: ' pointer' }}>
                             <Image width={300} height={20} src={dressBanana} />
                         </Carousel.Item>
                         <Carousel.Item interval={99999999} style={{ cursor: ' pointer' }}  >
@@ -58,7 +55,9 @@ const CarCake = () => {
                     </Carousel>
 
 
-                    <Carousel className='   p-2' variant="dark" indicators={false}  >
+                    <Carousel
+
+                        className='p-2' variant="dark" indicators={false}  >
 
                         <Carousel.Item interval={99999999} style={{ cursor: ' pointer' }}  >
                             <Image width={300} height={50} src={pink} />
@@ -74,7 +73,7 @@ const CarCake = () => {
                 </div>
             )
             }
-            <Row className='d-flex flex-row   ' >
+            <Row className='d-flex flex-row' >
                 <Col >
                     <Button
                         className='ml-1   '
@@ -93,8 +92,40 @@ const CarCake = () => {
                         -</Button>
                 </Col>
 
+
             </Row>
-        </Container >
+            <Button variant="danger" ref={target} onClick={() => setShow(!show)}>
+                ...
+            </Button>
+            <Overlay target={target.current} show={show} placement="right">
+                {({
+                    placement: _placement,
+                    arrowProps: _arrowProps,
+                    show: _show,
+                    popper: _popper,
+                    hasDoneInitialMeasure: _hasDoneInitialMeasure,
+                    ...props
+                }) => (
+                    <div
+                        className='margin-tool '
+                        {...props}
+                        style={{
+                            position: 'absolute',
+                            backgroundColor: 'rgba(248, 249, 250, 0.85)',
+                            padding: '2px 10px',
+                            color: 'white',
+                            borderRadius: 3,
+                            ...props.style,
+                            width: 300,
+                            height: 350,
+                        }}
+                    >
+                        Simple tooltip
+                    </div>
+                )}
+            </Overlay>
+
+        </Container>
 
     );
 }
