@@ -1,4 +1,4 @@
-import { React, useState, useRef, useContext, } from 'react';
+import { React, useState, useRef, useContext, useEffect } from 'react';
 import Carousel from 'react-bootstrap/Carousel';
 import br from '../assets/br.png'
 import pink from '../assets/pink.png'
@@ -21,7 +21,7 @@ const CarCake = () => {
 
 
     const addCakeArr = () => {
-        setCakeArr([...cakeArr, { title: '', id: Date.now(), img: '' }])
+        setCakeArr([...cakeArr, { nameLay: '', id: Date.now() }])
     }
 
 
@@ -39,28 +39,45 @@ const CarCake = () => {
 
     const [currentLay, setCurrentLay] = useState([])
 
+
+
+
+
     const addCurrentLayBan = () => {
-        setCurrentLay([...currentLay, { nameLay: 'Банан' }])
-        console.log(currentLay)
+        setCurrentLay([...currentLay, { nameLay: 'Банан', id: Date.now() }])
     }
     const addCurrentLayBer = () => {
-        setCurrentLay([...currentLay, { nameLay: 'Ягода' }])
-        console.log(currentLay)
+        setCurrentLay([...currentLay, { nameLay: 'Ягода', id: Date.now() }])
     }
     const addCurrentLayMaf = () => {
-        setCurrentLay([...currentLay, { nameLay: 'Сдоба' }])
-        console.log(currentLay)
+        setCurrentLay([...currentLay, { nameLay: 'Сдоба', id: Date.now() }])
     }
 
 
+    useEffect(() => {
+        console.log(currentLay, currentLay.nameLay)
+        if (currentLay[0].nameLay === 'Ягода') {
+            console.log('Ягода')
+        }
+        if (currentLay[0].nameLay === 'Банан') {
+            console.log('Банан')
+        }
+        if (currentLay[0].nameLay === 'Сдоба') {
+            console.log('Сдоба')
+        }
+        if (currentLay.length > 1) {
+            setCurrentLay(currentLay.slice(1))
+        }
 
-
-
+    });
 
 
 
 
     return (
+
+
+
 
 
 
@@ -253,7 +270,9 @@ const CarCake = () => {
                 )}
             </Overlay>
 
+
         </Container>
+
 
     );
 }
