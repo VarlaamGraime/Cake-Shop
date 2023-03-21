@@ -54,23 +54,19 @@ const CarCake = () => {
     }
 
 
+
+
     useEffect(() => {
-        console.log(currentLay, currentLay.nameLay)
-        if (currentLay[0].nameLay === 'Ягода') {
-            console.log('Ягода')
-        }
-        if (currentLay[0].nameLay === 'Банан') {
-            console.log('Банан')
-        }
-        if (currentLay[0].nameLay === 'Сдоба') {
-            console.log('Сдоба')
-        }
+
         if (currentLay.length > 1) {
             setCurrentLay(currentLay.slice(1))
         }
 
-    });
+        console.log(currentLay)
 
+
+
+    });
 
 
 
@@ -111,12 +107,10 @@ const CarCake = () => {
 
 
                     <Carousel
-
-
                         className='p-2' variant="dark" indicators={false}  >
-
                         <Carousel.Item interval={99999999} style={{ cursor: ' pointer' }}
-                            onClick={addCurrentLayBer}
+                            onClick={() => { setShow(!show); addCurrentLayBer(); }}
+
                             ref={target}
                             key={1}
                         >
@@ -194,7 +188,11 @@ const CarCake = () => {
 
 
                         <div className=' mt-4'>
-                            <h5 className=' text-center' style={{ color: 'black' }}> Слой нэйм</h5>
+                            <h5 className=' text-center' style={{ color: 'black' }}>
+                                {layers.layers.map(layer =>
+                                    <h5 className=' text-center' style={{ color: 'black', fontSize: '14px' }}>{layer.name}</h5>
+                                )}
+                            </h5>
                         </div>
 
                         {/* {layers.creams.map(cream =>
