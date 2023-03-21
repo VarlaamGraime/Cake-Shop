@@ -16,7 +16,7 @@ export default class LayStore {
         ]
         this._creams = [
             { id: 1, name: 'Ванильный', pic: { dressing } },
-            { id: 2, name: 'Карамельный', pic: [dressBanana] }
+            { id: 2, name: 'Карамельный', pic: { dressBanana } }
 
         ]
 
