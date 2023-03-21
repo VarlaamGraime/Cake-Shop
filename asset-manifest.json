@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/static/css/main.ace1f7cb.css",
+    "main.js": "/static/js/main.efb3323f.js",
+    "static/media/defaultCake.png": "/static/media/defaultCake.ec3817bacf4d396189f1.png",
+    "index.html": "/index.html",
+    "main.ace1f7cb.css.map": "/static/css/main.ace1f7cb.css.map",
+    "main.efb3323f.js.map": "/static/js/main.efb3323f.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.ace1f7cb.css",
+    "static/js/main.efb3323f.js"
+  ]
+}
