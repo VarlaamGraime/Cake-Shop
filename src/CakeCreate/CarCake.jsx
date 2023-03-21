@@ -44,13 +44,13 @@ const CarCake = () => {
 
 
     const addCurrentLayBan = () => {
-        setCurrentLay([...currentLay, { nameLay: 'Банан', id: Date.now() }])
+        setCurrentLay([...currentLay, { nameLay: 'Банан', id: Date.now(), img: yel }])
     }
     const addCurrentLayBer = () => {
-        setCurrentLay([...currentLay, { nameLay: 'Ягода', id: Date.now() }])
+        setCurrentLay([...currentLay, { nameLay: 'Ягода', id: Date.now(), img: pink }])
     }
     const addCurrentLayMaf = () => {
-        setCurrentLay([...currentLay, { nameLay: 'Сдоба', id: Date.now() }])
+        setCurrentLay([...currentLay, { nameLay: 'Сдоба', id: Date.now(), img: br }])
     }
 
 
@@ -189,9 +189,13 @@ const CarCake = () => {
 
                         <div className=' mt-4'>
                             <h5 className=' text-center' style={{ color: 'black' }}>
-                                {layers.layers.map(layer =>
-                                    <h5 className=' text-center' style={{ color: 'black', fontSize: '14px' }}>{layer.name}</h5>
-                                )}
+                                {currentLay.filter(layer => (layer.nameLay === 'Ягода') || (layer.nameLay === 'Банан') || (layer.nameLay === 'Сдоба')).map(filteredLayer => (
+                                    <div>
+                                        <h5 className=' text-center' style={{ color: 'black', fontSize: '14px' }}>{filteredLayer.nameLay}</h5>
+                                        <Image width={300} height={50} src={filteredLayer.img} />
+                                    </div>
+                                ))
+                                }
                             </h5>
                         </div>
 
@@ -199,7 +203,6 @@ const CarCake = () => {
                                 <h5 className=' text-center' style={{ color: 'black', fontSize: '14px' }}>{cream.name}</h5>
                             )} */}
 
-                        <Image width={300} height={50} src={pink} />
                         <h6 className=' text-center mt-3' style={{ color: 'black' }} >Описание </h6>
 
                         <Dropdown className=''>
