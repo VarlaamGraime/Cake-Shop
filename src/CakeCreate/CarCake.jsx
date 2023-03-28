@@ -21,15 +21,13 @@ const CarCake = () => {
 
 
     const addCakeArr = () => {
-        setCakeArr([...cakeArr, { nameLay: '', id: Date.now() }])
+        setCakeArr([...cakeArr, { nameLay: '', nameCr: '', id: Date.now() }])
     }
-
 
     const removeCake = (id) => {
         setCakeArr([...cakeArr.slice(0, cakeArr.length - 1)]);
     }
 
-    // console.log(cakeArr)
 
     const [show, setShow] = useState(false);
     const target = useRef(null);
@@ -39,20 +37,31 @@ const CarCake = () => {
 
     const [currentLay, setCurrentLay] = useState([])
 
+    const [currentCr, setCurrentCr] = useState([])
+
+
 
 
 
 
     const addCurrentLayBan = () => {
-        setCurrentLay([...currentLay, { nameLay: 'Банан', id: Date.now(), img: yel }])
+        setCurrentLay([...currentLay, { nameLay: 'Банан', id: Date.now(), img: yel, descr: 'Нежнейший банановый слой, сделанный по исконным рецептам и прочее прочее прочее, еще немного текста для объёма, чтобы было понятно и наглядно, иначе нереалистично ' }])
     }
     const addCurrentLayBer = () => {
-        setCurrentLay([...currentLay, { nameLay: 'Ягода', id: Date.now(), img: pink }])
+        setCurrentLay([...currentLay, { nameLay: 'Ягода', id: Date.now(), img: pink, descr: 'Нежнейший ягодный слой, сделанный по исконным рецептам и прочее прочее прочее, еще немного текста для объёма, чтобы было понятно и наглядно, иначе нереалистично ' }])
     }
     const addCurrentLayMaf = () => {
-        setCurrentLay([...currentLay, { nameLay: 'Сдоба', id: Date.now(), img: br }])
+        setCurrentLay([...currentLay, { nameLay: 'Сдоба', id: Date.now(), img: br, descr: 'Нежнейший сдобный слой, сделанный по исконным рецептам и прочее прочее прочее, еще немного текста для объёма, чтобы было понятно и наглядно, иначе нереалистично ' }])
     }
 
+
+
+    const addCurrentCrVan = () => {
+        setCurrentCr([...currentCr, { nameCr: 'Ваниль', id: Date.now(), img: dressBanana, descr: 'Сочная ванильная начинка, сделанная по исконным рецептам и прочее прочее прочее, еще немного текста для объёма, чтобы было понятно и наглядно, иначе нереалистично ' }])
+    }
+    const addCurrentCrCar = () => {
+        setCurrentCr([...currentCr, { nameCr: 'Карамель', id: Date.now(), img: dressing, descr: 'Сочная карамельная начинка, сделанная по исконным рецептам и прочее прочее прочее, еще немного текста для объёма, чтобы было понятно и наглядно, иначе нереалистично ' }])
+    }
 
 
 
@@ -62,9 +71,14 @@ const CarCake = () => {
             setCurrentLay(currentLay.slice(1))
         }
 
-        console.log(currentLay)
-
-
+        if (currentCr.length > 1) {
+            setCurrentCr(currentCr.slice(1))
+        }
+        console.log(`-------------`)
+        console.log(currentLay, ' массив с выбранным слоем')
+        console.log(currentCr, ' массив с выбранной прослойкой')
+        console.log(cakeArr, ' массив всего торта')
+        console.log(`-------------`)
 
     });
 
@@ -79,23 +93,23 @@ const CarCake = () => {
 
         <Container className='d-flex  flex-column justify-content-center align-items-center'>
 
+
+
             {cakeArr.map(i =>
 
                 <div className='margin-lay'>
 
-                    <Carousel className='p-2 position-relative   zIn margin-dress' variant="dark" indicators={false}  >
+                    <Carousel className='p-2 position-relative zIn margin-dress  ' variant="dark" indicators={false}  >
 
-                        <Carousel.Item interval={99999999} style={{ cursor: ' pointer' }}
-                            onClick={() => setShowCr(!showCr)}
+                        <Carousel.Item interval={99999999} style={{ cursor: 'pointer' }}
+                            onClick={() => { setShowCr(!showCr); addCurrentCrVan(); setShow(false) }}
                             ref={target}
                             key={11}
-
-
                         >
                             <Image width={300} height={20} src={dressBanana} />
                         </Carousel.Item>
                         <Carousel.Item interval={99999999} style={{ cursor: ' pointer' }}
-                            onClick={() => setShowCr(!showCr)}
+                            onClick={() => { setShowCr(!showCr); addCurrentCrCar(); setShow(false) }}
                             ref={target2}
                             key={12}
 
@@ -107,17 +121,16 @@ const CarCake = () => {
 
 
                     <Carousel
-                        className='p-2' variant="dark" indicators={false}  >
+                        className='p-2  ' variant="dark" indicators={false}  >
                         <Carousel.Item interval={99999999} style={{ cursor: ' pointer' }}
-                            onClick={() => { setShow(!show); addCurrentLayBer(); }}
-
+                            onClick={() => { setShow(!show); addCurrentLayBer(); setShowCr(false); }}
                             ref={target}
                             key={1}
                         >
                             <Image width={300} height={50} src={pink} />
                         </Carousel.Item>
                         <Carousel.Item interval={99999999} style={{ cursor: ' pointer' }}
-                            onClick={addCurrentLayBan}
+                            onClick={() => { setShow(!show); addCurrentLayBan(); setShowCr(false); }}
                             ref={target}
                             key={2}
 
@@ -125,7 +138,7 @@ const CarCake = () => {
                             <Image width={300} height={50} src={yel} />
                         </Carousel.Item>
                         <Carousel.Item interval={99999999} style={{ cursor: ' pointer' }}
-                            onClick={addCurrentLayMaf}
+                            onClick={() => { setShow(!show); addCurrentLayMaf(); setShowCr(false); }}
                             ref={target}
                             key={3}
 
@@ -189,38 +202,42 @@ const CarCake = () => {
 
                         <div className=' mt-4'>
                             <h5 className=' text-center' style={{ color: 'black' }}>
-                                {currentLay.filter(layer => (layer.nameLay === 'Ягода') || (layer.nameLay === 'Банан') || (layer.nameLay === 'Сдоба')).map(filteredLayer => (
+                                {currentLay.filter(layer =>
+                                    (layer.nameLay === 'Ягода')
+                                    || (layer.nameLay === 'Банан')
+                                    || (layer.nameLay === 'Сдоба')
+                                ).map(filteredLayer => (
                                     <div>
-                                        <h5 className=' text-center' style={{ color: 'black', fontSize: '14px' }}>{filteredLayer.nameLay}</h5>
+                                        <h5 className=' text-center' style={{ color: 'black', fontSize: '24px' }}>{filteredLayer.nameLay}</h5>
                                         <Image width={300} height={50} src={filteredLayer.img} />
+
+                                        <h6 className='mt-3 textInfo'  >{filteredLayer.descr} </h6>
+
                                     </div>
                                 ))
                                 }
                             </h5>
                         </div>
 
-                        {/* {layers.creams.map(cream =>
-                                <h5 className=' text-center' style={{ color: 'black', fontSize: '14px' }}>{cream.name}</h5>
-                            )} */}
 
-                        <h6 className=' text-center mt-3' style={{ color: 'black' }} >Описание </h6>
+
 
                         <Dropdown className=''>
-                            <Dropdown.Toggle>Выберите слой</Dropdown.Toggle>
-                            <Dropdown.Menu>
+                            <Dropdown.Toggle>Изменить слой</Dropdown.Toggle>
+                            <Dropdown.Menu style={{ margin: 0 }}>
                                 {layers.layers.map(layer =>
-                                    <Dropdown.Item key={layer.id} >{layer.name}</Dropdown.Item>
+                                    <Dropdown.Item key={layer.id}
+                                    >{layer.name}</Dropdown.Item>
                                 )}
+                                <Button className='mx-2 mt-2' variant='outline-danger' onClick={removeCake} >Удалить  </Button>
 
                             </Dropdown.Menu>
-                            <Button className='rightBox ' variant='outline-danger' onClick={removeCake} >Удалить  </Button>
-
-
                         </Dropdown>
 
 
                     </div>
-                )}
+                )
+                }
             </Overlay>
 
             <Overlay target2={target2.current} show={showCr} placement="right">
@@ -247,30 +264,53 @@ const CarCake = () => {
                         }}
                     >
 
-                        <div className=' mt-4'>
+                        {/* <div className=' mt-4'>
                             <h5 className='text-center' style={{ color: 'black' }}> Крем нэйм</h5>
                         </div>
                         <Image width={300} height={50} src={dressBanana} />
-                        <h6 className=' text-center mt-3' style={{ color: 'black' }} >Описание </h6>
+                        <h6 className=' text-center mt-3' style={{ color: 'black' }} >Описание </h6> */}
+
+
+
+                        <h5 className=' text-center' style={{ color: 'black' }}>
+                            {currentCr.filter(Cream =>
+                                (Cream.nameCr === 'Ваниль')
+                                || (Cream.nameCr === 'Карамель')
+                            ).map(filteredCream => (
+                                <div>
+                                    <h5 className=' text-center' style={{ color: 'black', fontSize: '24px' }}>{filteredCream.nameCr}</h5>
+                                    <Image width={300} height={50} src={filteredCream.img} />
+
+                                    <h6 className='mt-3 textInfo'  >{filteredCream.descr} </h6>
+
+                                </div>
+                            ))
+                            }
+                        </h5>
 
 
                         <Dropdown className='mt-3'>
-                            <Dropdown.Toggle>Выберите крем</Dropdown.Toggle>
-                            <Dropdown.Menu>
+                            <Dropdown.Toggle>Изменить крем</Dropdown.Toggle>
+                            <Dropdown.Menu style={{ margin: 0 }}>
                                 {layers.creams.map(cream =>
                                     <Dropdown.Item key={cream.id}>{cream.name}</Dropdown.Item>
                                 )}
+                                <Button className='mx-2 mt-2' variant='outline-danger' >Удалить слой</Button>
 
                             </Dropdown.Menu>
-                            <Button className='mx-2 ml-2' variant='outline-success' >Изменить</Button>
-
                         </Dropdown>
 
-                        <Button className='mx-2 mt-5' variant='outline-danger' >Удалить крем</Button>
+
                     </div>
                 )}
             </Overlay>
 
+            <div className='succes_but_div'>
+                <button
+                    className='Butt_succes'
+
+                >Собрать торт</button>
+            </div>
 
         </Container>
 

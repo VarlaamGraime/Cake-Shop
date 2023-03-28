@@ -21,7 +21,7 @@ const EditCake = () => {
 
                 <h5 className='text-center '>Редактироть торт</h5>
                 <Form className='mt-2 mx-3 justify-content-between align-items-center '>
-                    <Dropdown className=''>
+                    {/* <Dropdown className=''>
                         <Dropdown.Toggle>Выберите слой</Dropdown.Toggle>
                         <Dropdown.Menu>
                             {layers.layers.map(layer =>
@@ -35,11 +35,11 @@ const EditCake = () => {
 
                         >Добавить</Button>
 
-                    </Dropdown>
+                    </Dropdown> */}
 
 
 
-                    <Dropdown className='mt-3'>
+                    {/* <Dropdown className='mt-3'>
                         <Dropdown.Toggle>Выберите крем</Dropdown.Toggle>
                         <Dropdown.Menu>
                             {layers.creams.map(cream =>
@@ -59,7 +59,7 @@ const EditCake = () => {
                         </Dropdown.Menu>
                         <Button className='mx-2 ml-2' variant='outline-success' >Добавить</Button>
 
-                    </Dropdown>
+                    </Dropdown> */}
                 </Form>
 
             </Card>
