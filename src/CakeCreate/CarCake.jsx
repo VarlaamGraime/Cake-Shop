@@ -8,9 +8,6 @@ import dressBanana from '../assets/dressBanana.png'
 import { Context } from '../index'
 import './Style/Style.css'
 import { Image, Container, Button, Card, Col, Row, Overlay, Dropdown, Form } from 'react-bootstrap';
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-import Slider from "react-slick";
 
 
 
@@ -40,6 +37,14 @@ const CarCake = () => {
     const [currentLay, setCurrentLay] = useState([])
 
     const [currentCr, setCurrentCr] = useState([])
+
+    const [activeIndex, setActiveIndex] = useState(0);
+
+    const handleSelect = (selectedIndex) => {
+        setActiveIndex(selectedIndex);
+        console.log('Active slide index:', selectedIndex);
+    };
+
 
 
 
@@ -121,7 +126,7 @@ const CarCake = () => {
                     </Carousel>
 
 
-                    <Carousel onSelect={console.log('1')}
+                    <Carousel activeIndex={activeIndex} onSelect={handleSelect}
                         className='p-2  ' variant="dark" indicators={false}  >
                         <Carousel.Item interval={99999999} style={{ cursor: ' pointer' }}
                             onClick={() => { setShow(!show); addCurrentLayBer(); setShowCr(false); }}
@@ -134,7 +139,6 @@ const CarCake = () => {
                             onClick={() => { setShow(!show); addCurrentLayBan(); setShowCr(false); }}
                             ref={target}
                             key={2}
-
                         >
                             <Image width={300} height={50} src={yel} />
                         </Carousel.Item>
@@ -142,7 +146,6 @@ const CarCake = () => {
                             onClick={() => { setShow(!show); addCurrentLayMaf(); setShowCr(false); }}
                             ref={target}
                             key={3}
-
                         >
                             <Image width={300} height={50} src={br} />
                         </Carousel.Item>

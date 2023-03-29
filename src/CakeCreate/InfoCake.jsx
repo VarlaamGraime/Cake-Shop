@@ -1,21 +1,11 @@
 import React from 'react';
 import { Card, Container, Image, Button } from 'react-bootstrap';
-
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-import Slider from "react-slick";
-
+import br from '../assets/br.png'
+import pink from '../assets/pink.png'
+import yel from '../assets/yel.png'
 
 
 const InfoCake = () => {
-
-    var settings = {
-        dots: true,
-        infinite: true,
-        speed: 500,
-        slidesToShow: 1,
-        slidesToScroll: 1
-    };
     return (
         <Container>
 
