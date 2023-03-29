@@ -6,7 +6,6 @@ import yel from '../assets/yel.png'
 import dressing from '../assets/dressing.png'
 import dressBanana from '../assets/dressBanana.png'
 import { Context } from '../index'
-
 import './Style/Style.css'
 import { Image, Container, Button, Card, Col, Row, Overlay, Dropdown, Form } from 'react-bootstrap';
 
@@ -21,7 +20,7 @@ const CarCake = () => {
 
 
     const addCakeArr = () => {
-        setCakeArr([...cakeArr, { nameLay: '', nameCr: '', id: Date.now() }])
+        setCakeArr([...cakeArr, { nameLay: 'Ягода', nameCr: 'Ваниль', id: Date.now() }])
     }
 
     const removeCake = (id) => {
@@ -120,7 +119,7 @@ const CarCake = () => {
                     </Carousel>
 
 
-                    <Carousel
+                    <Carousel onSelect={console.log('1')}
                         className='p-2  ' variant="dark" indicators={false}  >
                         <Carousel.Item interval={99999999} style={{ cursor: ' pointer' }}
                             onClick={() => { setShow(!show); addCurrentLayBer(); setShowCr(false); }}
