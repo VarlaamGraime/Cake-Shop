@@ -21,6 +21,8 @@ const EditCake = () => {
 
                 <h5 className='text-center '>Редактироть торт</h5>
                 <Form className='mt-2 mx-3 justify-content-between align-items-center '>
+
+
                     {/* <Dropdown className=''>
                         <Dropdown.Toggle>Выберите слой</Dropdown.Toggle>
                         <Dropdown.Menu>
