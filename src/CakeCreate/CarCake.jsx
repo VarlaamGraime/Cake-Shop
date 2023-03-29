@@ -8,6 +8,9 @@ import dressBanana from '../assets/dressBanana.png'
 import { Context } from '../index'
 import './Style/Style.css'
 import { Image, Container, Button, Card, Col, Row, Overlay, Dropdown, Form } from 'react-bootstrap';
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import Slider from "react-slick";
 
 
 
@@ -61,7 +64,6 @@ const CarCake = () => {
     const addCurrentCrCar = () => {
         setCurrentCr([...currentCr, { nameCr: 'Карамель', id: Date.now(), img: dressing, descr: 'Сочная карамельная начинка, сделанная по исконным рецептам и прочее прочее прочее, еще немного текста для объёма, чтобы было понятно и наглядно, иначе нереалистично ' }])
     }
-
 
 
     useEffect(() => {
@@ -305,9 +307,10 @@ const CarCake = () => {
             </Overlay>
 
             <div className='succes_but_div'>
+
+
                 <button
                     className='Butt_succes'
-
                 >Собрать торт</button>
             </div>
 
