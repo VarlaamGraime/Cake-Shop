@@ -6,6 +6,8 @@ import yel from '../assets/yel.png'
 
 
 const InfoCake = () => {
+
+
     return (
         <Container>
 

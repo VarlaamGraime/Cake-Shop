@@ -18,6 +18,10 @@ const CarCake = () => {
 
     const [cakeArr, setCakeArr] = useState([])
 
+    const [createdCake, setCreatedCake] = useState([])
+
+
+
 
     const addCakeArr = () => {
         setCakeArr([...cakeArr, { nameLay: 'Ягода', nameCr: 'Ваниль', id: Date.now() }])
@@ -38,12 +42,30 @@ const CarCake = () => {
 
     const [currentCr, setCurrentCr] = useState([])
 
+
     const [activeIndex, setActiveIndex] = useState(0);
 
     const handleSelect = (selectedIndex) => {
         setActiveIndex(selectedIndex);
         console.log('Active slide index:', selectedIndex);
+
+        if (selectedIndex === 0) {
+            console.log('ягода')
+            cakeArr.nameLay = 'Ягода'
+        }
+        else if (selectedIndex === 1) {
+            console.log('банан')
+            cakeArr.nameLay = 'банан'
+
+        }
+        else {
+            console.log('сдоба')
+            cakeArr.nameLay = 'сдоба'
+
+        }
+
     };
+
 
 
 
@@ -71,7 +93,7 @@ const CarCake = () => {
     }
 
 
-    useEffect(() => {
+    useEffect((selectedIndex) => {
 
         if (currentLay.length > 1) {
             setCurrentLay(currentLay.slice(1))
@@ -84,7 +106,11 @@ const CarCake = () => {
         console.log(currentLay, ' массив с выбранным слоем')
         console.log(currentCr, ' массив с выбранной прослойкой')
         console.log(cakeArr, ' массив всего торта')
+
         console.log(`-------------`)
+
+
+
 
     });
 
@@ -126,7 +152,9 @@ const CarCake = () => {
                     </Carousel>
 
 
-                    <Carousel activeIndex={activeIndex} onSelect={handleSelect}
+                    <Carousel
+                        // activeIndex={activeIndex}
+                        onSelect={handleSelect}
                         className='p-2  ' variant="dark" indicators={false}  >
                         <Carousel.Item interval={99999999} style={{ cursor: ' pointer' }}
                             onClick={() => { setShow(!show); addCurrentLayBer(); setShowCr(false); }}
