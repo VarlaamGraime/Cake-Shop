@@ -55,7 +55,14 @@
 }
 
 .test {
-    border: solid 2px black;
-    background-color: green;
+    border-radius: 100px;
+    border: solid 1px rgb(29, 236, 29);
+    background-color: rgb(29, 236, 29);
+    position: absolute;
+    margin-left: 125px;
+}
 
+.testBlock {
+    display: flex;
+    justify-content: space-between;
 }
