@@ -2,6 +2,11 @@ import { makeAutoObservable } from 'mobx';
 
 export default class CakeStore {
     constructor() {
+
+
+
+
+
         this._types = [
             { id: 1, name: 'Торты' },
             { id: 2, name: 'Пирожные' },
@@ -10,19 +15,19 @@ export default class CakeStore {
 
         ]
         this._brands = [
-            { id: 1, name: 'Шоколадные' },
-            { id: 2, name: 'Кремовые' },
-            { id: 3, name: 'Вафельные' },
-            { id: 4, name: 'Солёные' },
+            { id: 21, name: 'Шоколадные' },
+            { id: 22, name: 'Кремовые' },
+            { id: 23, name: 'Вафельные' },
+            { id: 24, name: 'Солёные' },
 
         ]
         this._cakes = [
-            { id: 1, name: 'Наполеон', price: 1000, rating: 5 },
-            { id: 2, name: 'Картошка', price: 1000, rating: 5 },
-            { id: 3, name: 'Прага', price: 1000, rating: 5 },
-            { id: 4, name: 'Кремовый', price: 1000, rating: 5 },
-            { id: 5, name: 'Томатный', price: 1000, rating: 5 },
-            { id: 6, name: 'Желейный', price: 1000, rating: 5 },
+            { id: 31, name: 'Наполеон', price: 1000, rating: 5 },
+            { id: 32, name: 'Картошка', price: 1000, rating: 5 },
+            { id: 33, name: 'Прага', price: 1000, rating: 5 },
+            { id: 34, name: 'Кремовый', price: 1000, rating: 5 },
+            { id: 35, name: 'Томатный', price: 1000, rating: 5 },
+            { id: 36, name: 'Желейный', price: 1000, rating: 5 },
 
 
         ]

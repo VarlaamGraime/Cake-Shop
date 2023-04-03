@@ -9,14 +9,14 @@ import dressBanana from '../assets/dressBanana.png'
 export default class LayStore {
     constructor() {
         this._layers = [
-            { id: 1, name: 'Банановый', pic: { br } },
-            { id: 2, name: 'Сдобный', pic: { pink } },
-            { id: 3, name: 'Малиновый', pic: { yel } }
+            { id: 51, name: 'Банановый', pic: { br } },
+            { id: 52, name: 'Сдобный', pic: { pink } },
+            { id: 53, name: 'Малиновый', pic: { yel } }
 
         ]
         this._creams = [
-            { id: 1, name: 'Ванильный', pic: { dressing } },
-            { id: 2, name: 'Карамельный', pic: { dressBanana } }
+            { id: 101, name: 'Ванильный', pic: { dressing } },
+            { id: 102, name: 'Карамельный', pic: { dressBanana } }
 
         ]
 

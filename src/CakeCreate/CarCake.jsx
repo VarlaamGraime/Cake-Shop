@@ -20,7 +20,21 @@ const CarCake = () => {
 
     const [createdCake, setCreatedCake] = useState([])
 
+    const items = [
+        { id: 200, },
+        { id: 201, },
+        { id: 202, },
+        { id: 203, },
+        { id: 204, },
+        { id: 205, },
+        { id: 206, },
+        { id: 207, },
+        { id: 208, },
+        { id: 209, },
+        { id: 210, },
 
+
+    ];
 
 
     const addCakeArr = () => {
@@ -47,24 +61,25 @@ const CarCake = () => {
 
     const handleSelect = (selectedIndex) => {
         setActiveIndex(selectedIndex);
-        console.log('Active slide index:', selectedIndex);
 
         if (selectedIndex === 0) {
             console.log('ягода')
-            cakeArr.nameLay = 'Ягода'
+            cakeArr[0].nameLay = 'Ягода'
         }
         else if (selectedIndex === 1) {
             console.log('банан')
-            cakeArr.nameLay = 'банан'
+            cakeArr[0].nameLay = 'банан'
 
         }
         else {
             console.log('сдоба')
-            cakeArr.nameLay = 'сдоба'
+            cakeArr[0].nameLay = 'сдоба'
 
         }
 
-    };
+
+
+    }
 
 
 
@@ -130,20 +145,17 @@ const CarCake = () => {
             {cakeArr.map(i =>
 
                 <div className='margin-lay'>
-
                     <Carousel className='p-2 position-relative zIn margin-dress  ' variant="dark" indicators={false}  >
 
                         <Carousel.Item interval={99999999} style={{ cursor: 'pointer' }}
                             onClick={() => { setShowCr(!showCr); addCurrentCrVan(); setShow(false) }}
                             ref={target}
-                            key={11}
                         >
                             <Image width={300} height={20} src={dressBanana} />
                         </Carousel.Item>
                         <Carousel.Item interval={99999999} style={{ cursor: ' pointer' }}
                             onClick={() => { setShowCr(!showCr); addCurrentCrCar(); setShow(false) }}
                             ref={target2}
-                            key={12}
 
                         >
                             <Image width={300} height={20} src={dressing} />
@@ -153,27 +165,28 @@ const CarCake = () => {
 
 
                     <Carousel
-                        // activeIndex={activeIndex}
+                        key={123123}
                         onSelect={handleSelect}
                         className='p-2  ' variant="dark" indicators={false}  >
+
+
                         <Carousel.Item interval={99999999} style={{ cursor: ' pointer' }}
                             onClick={() => { setShow(!show); addCurrentLayBer(); setShowCr(false); }}
                             ref={target}
-                            key={1}
+
                         >
+
                             <Image width={300} height={50} src={pink} />
                         </Carousel.Item>
                         <Carousel.Item interval={99999999} style={{ cursor: ' pointer' }}
                             onClick={() => { setShow(!show); addCurrentLayBan(); setShowCr(false); }}
                             ref={target}
-                            key={2}
                         >
                             <Image width={300} height={50} src={yel} />
                         </Carousel.Item>
                         <Carousel.Item interval={99999999} style={{ cursor: ' pointer' }}
                             onClick={() => { setShow(!show); addCurrentLayMaf(); setShowCr(false); }}
                             ref={target}
-                            key={3}
                         >
                             <Image width={300} height={50} src={br} />
                         </Carousel.Item>
@@ -345,7 +358,7 @@ const CarCake = () => {
                 >Собрать торт</button>
             </div>
 
-        </Container>
+        </Container >
 
 
     );
