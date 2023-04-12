@@ -62,7 +62,7 @@ const CarCake = () => {
 
 
     const addCakeArr = () => {
-        setCakeArr([...cakeArr, { nameLay: 'Ягода', nameCr: 'Ваниль', id: Date.now(), onSelect: handleSelect }])
+        setCakeArr([...cakeArr, { nameLay: 'Ягода', nameCr: 'Ваниль', id: Date.now(), onSelect: handleSelect1 }])
     }
 
     const removeCake = (id) => {
@@ -186,6 +186,7 @@ const CarCake = () => {
                         className='p-2 '
                         variant="dark"
                         indicators={false}
+                        onSelect={cakeArr.onSelect}
                     >
 
 
