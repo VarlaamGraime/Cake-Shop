@@ -22,82 +22,47 @@ const CarCake = () => {
     const [createdCake, setCreatedCake] = useState([])
 
 
-    // const handleSelect = (selectedIndex) => {
+    const handleSelect = (selectedIndex) => {
 
-    //     console.log('123')
-    //     setActiveIndex(selectedIndex);
-    //     if (selectedIndex === 0) {
-    //         console.log('ягода')
-    //         cakeArr[0].nameLay = 'Ягода'
-    //     }
-    //     else if (selectedIndex === 1) {
-    //         console.log('банан')
-    //         cakeArr[0].nameLay = 'банан'
-    //     }
-    //     else {
-    //         console.log('сдоба')
-    //         cakeArr[0].nameLay = 'сдоба'
-    //     }
+        console.log('123')
+        setActiveIndex(selectedIndex);
+        if (selectedIndex === 0) {
+            console.log('ягода')
+            cakeArr[0].nameLay = 'Ягода'
+        }
+        else if (selectedIndex === 1) {
+            console.log('банан')
+            cakeArr[0].nameLay = 'банан'
+        }
+        else {
+            console.log('сдоба')
+            cakeArr[0].nameLay = 'сдоба'
+        }
 
-    // }
+    }
 
 
     const handleSelect1 = (selectedIndex) => {
-        setActiveIndex1(selectedIndex);
-        console.log('1')
+        console.log('111')
     };
 
     const handleSelect2 = (selectedIndex) => {
-        setActiveIndex2(selectedIndex);
         console.log('2')
 
     };
 
     const handleSelect3 = (selectedIndex) => {
-        setActiveIndex3(selectedIndex);
         console.log('3')
 
     };
-
-    const carousels = [
-        {
-            id: 1,
-            onSelect: handleSelect1,
-            items: [
-                <Carousel.Item key={1}>Item 1A</Carousel.Item>,
-                <Carousel.Item key={2}>Item 1B</Carousel.Item>,
-                <Carousel.Item key={3}>Item 1C</Carousel.Item>,
-            ]
-        },
-        {
-            id: 2,
-            onSelect: handleSelect2,
-            items: [
-                <Carousel.Item key={1}>Item 2A</Carousel.Item>,
-                <Carousel.Item key={2}>Item 2B</Carousel.Item>,
-                <Carousel.Item key={3}>Item 2C</Carousel.Item>,
-            ]
-        },
-        {
-            id: 3,
-            onSelect: handleSelect3,
-            items: [
-                <Carousel.Item key={1}>Item 3A</Carousel.Item>,
-                <Carousel.Item key={2}>Item 3B</Carousel.Item>,
-                <Carousel.Item key={3}>Item 3C</Carousel.Item>,
-            ]
-        }
-    ];
-
-
-
+ 
 
 
 
 
 
     const addCakeArr = () => {
-        setCakeArr([...cakeArr, { nameLay: 'Ягода', nameCr: 'Ваниль', id: Date.now() }])
+        setCakeArr([...cakeArr, { nameLay: 'Ягода', nameCr: 'Ваниль', id: Date.now(), onSelect: handleSelect }])
     }
 
     const removeCake = (id) => {
@@ -218,11 +183,10 @@ const CarCake = () => {
 
                     <Carousel
                         key={carousel.id}
-                        activeIndex={carousel.id === 1 ? activeIndex1 : carousel.id === 2 ? activeIndex2 : activeIndex3}
-                        onSelect={carousel.onSelect}
                         className='p-2 '
                         variant="dark"
-                        indicators={false}  >
+                        indicators={false}
+                    >
 
 
                         <Carousel.Item
@@ -252,13 +216,6 @@ const CarCake = () => {
                             <Image width={300} height={50} src={br} />
                         </Carousel.Item>
                     </Carousel>
-                    {carousels.map((carousel) => (
-                        <Carousel
-                        >
-                            {carousel.items}
-                        </Carousel>
-                    ))}
-
                 </div>
             )
             }
