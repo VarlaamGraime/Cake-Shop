@@ -13,7 +13,6 @@ import { Image, Container, Button, Card, Col, Row, Overlay, Dropdown, Form } fro
 
 const CarCake = () => {
 
-    const [activeIndex, setActiveIndex] = useState(0);
 
     const { layers } = useContext(Context)
 
@@ -40,22 +39,60 @@ const CarCake = () => {
         }
 
     }
-
+    const [activeIndex, setActiveIndex] = useState(0);
 
     const handleSelect1 = (selectedIndex) => {
-        console.log('111')
+        setActiveIndex(selectedIndex);
+        console.log('Carousel 1 selected item', selectedIndex);
     };
 
     const handleSelect2 = (selectedIndex) => {
-        console.log('2')
-
+        setActiveIndex(selectedIndex);
+        console.log('Carousel 2 selected item', selectedIndex);
     };
 
     const handleSelect3 = (selectedIndex) => {
-        console.log('3')
-
+        setActiveIndex(selectedIndex);
+        console.log('Carousel 3 selected item', selectedIndex);
     };
- 
+
+
+
+    const carousels = [
+        {
+            id: 1, items:[
+            
+             <Carousel.Item
+                            interval={99999999}
+                            style={{ cursor: ' pointer' }}
+                            onClick={() => { setShow(!show); addCurrentLayBer(); setShowCr(false) }}
+                            // ref={target}
+                            imageSrc
+                        >
+                            {/* <Image width={300} height={50} src={pink} /> */}
+                        </Carousel.Item>,
+
+                        <Carousel.Item
+                            interval={99999999}
+                            style={{ cursor: ' pointer' }}
+                            onClick={() => { setShow(!show); addCurrentLayBan(); setShowCr(false); }}
+                            // ref={target}
+                        >
+                            <Image width={300} height={50} src={yel} />
+                        </Carousel.Item>,
+
+                        <Carousel.Item
+                            interval={99999999}
+                            style={{ cursor: ' pointer' }}
+                            onClick={() => { setShow(!show); addCurrentLayMaf(); setShowCr(false); }}
+                            // ref={target}
+                        >
+                            <Image width={300} height={50} src={br} />
+                        </Carousel.Item>
+            ]
+            , onSelect: handleSelect1
+        }
+    ];
 
 
 
@@ -79,17 +116,6 @@ const CarCake = () => {
     const [currentLay, setCurrentLay] = useState([])
 
     const [currentCr, setCurrentCr] = useState([])
-
-
-
-    const [activeIndex1, setActiveIndex1] = useState(0);
-    const [activeIndex2, setActiveIndex2] = useState(0);
-    const [activeIndex3, setActiveIndex3] = useState(0);
-
-
-
-
-
 
 
 
@@ -180,7 +206,7 @@ const CarCake = () => {
                     </Carousel>
 
 
-
+{/* 
                     <Carousel
                         key={carousel.id}
                         className='p-2 '
@@ -216,8 +242,28 @@ const CarCake = () => {
                         >
                             <Image width={300} height={50} src={br} />
                         </Carousel.Item>
-                    </Carousel>
+                    </Carousel> */}
+
+                    <div>
+                        {carousels.map((carousel) => (
+                            <Carousel
+                                key={carousel.id}
+                                onSelect={carousel.onSelect}
+                                className='p-2'
+                                variant='dark'
+                                indicators={false}
+                            >
+                                {carousel.items.map((item, index) => (
+                                    <Carousel.Item key={index}>
+                                        <h3>{item}</h3>
+                                    </Carousel.Item>
+                                ))}
+                            </Carousel>
+                        ))}
+                    </div>
                 </div>
+
+
             )
             }
             <Row className='d-flex flex-row' >
