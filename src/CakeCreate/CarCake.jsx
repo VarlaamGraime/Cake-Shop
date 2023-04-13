@@ -20,86 +20,49 @@ const CarCake = () => {
 
     const [createdCake, setCreatedCake] = useState([])
 
+    const [countCake, setCountCake] = useState(-1)
 
-    const handleSelect = (selectedIndex) => {
+    function incrementLay() {
+        setCountCake(countCake + 1)
+    }
+    function decrementLay() {
+        setCountCake(countCake - 1)
+    }
 
-        console.log('123')
+
+    const changeLay = (selectedIndex) => {
         setActiveIndex(selectedIndex);
         if (selectedIndex === 0) {
-            console.log('ягода')
-            cakeArr[0].nameLay = 'Ягода'
+            cakeArr[countCake].nameLay = 'Ягода'
         }
         else if (selectedIndex === 1) {
-            console.log('банан')
-            cakeArr[0].nameLay = 'банан'
+            cakeArr[countCake].nameLay = 'банан'
         }
         else {
-            console.log('сдоба')
-            cakeArr[0].nameLay = 'сдоба'
+            cakeArr[countCake].nameLay = 'сдоба'
+        }
+
+    }
+
+    const changeCream = (selectedIndex) => {
+        setActiveIndex(selectedIndex);
+        if (selectedIndex === 0) {
+            cakeArr[countCake].nameCr = 'Ваниль'
+        }
+        else {
+            cakeArr[countCake].nameCr = 'Карамель'
         }
 
     }
     const [activeIndex, setActiveIndex] = useState(0);
-
-    const handleSelect1 = (selectedIndex) => {
-        setActiveIndex(selectedIndex);
-        console.log('Carousel 1 selected item', selectedIndex);
-    };
-
-    const handleSelect2 = (selectedIndex) => {
-        setActiveIndex(selectedIndex);
-        console.log('Carousel 2 selected item', selectedIndex);
-    };
-
-    const handleSelect3 = (selectedIndex) => {
-        setActiveIndex(selectedIndex);
-        console.log('Carousel 3 selected item', selectedIndex);
-    };
-
-
-
-    const carousels = [
-        {
-            id: 1, items:[
-            
-             <Carousel.Item
-                            interval={99999999}
-                            style={{ cursor: ' pointer' }}
-                            onClick={() => { setShow(!show); addCurrentLayBer(); setShowCr(false) }}
-                            // ref={target}
-                            imageSrc
-                        >
-                            {/* <Image width={300} height={50} src={pink} /> */}
-                        </Carousel.Item>,
-
-                        <Carousel.Item
-                            interval={99999999}
-                            style={{ cursor: ' pointer' }}
-                            onClick={() => { setShow(!show); addCurrentLayBan(); setShowCr(false); }}
-                            // ref={target}
-                        >
-                            <Image width={300} height={50} src={yel} />
-                        </Carousel.Item>,
-
-                        <Carousel.Item
-                            interval={99999999}
-                            style={{ cursor: ' pointer' }}
-                            onClick={() => { setShow(!show); addCurrentLayMaf(); setShowCr(false); }}
-                            // ref={target}
-                        >
-                            <Image width={300} height={50} src={br} />
-                        </Carousel.Item>
-            ]
-            , onSelect: handleSelect1
-        }
-    ];
-
+ 
+ 
 
 
 
 
     const addCakeArr = () => {
-        setCakeArr([...cakeArr, { nameLay: 'Ягода', nameCr: 'Ваниль', id: Date.now(), onSelect: handleSelect1 }])
+        setCakeArr([...cakeArr, { nameLay: 'Ягода', nameCr: 'Ваниль', id: Date.now()}])
     }
 
     const removeCake = (id) => {
@@ -116,8 +79,6 @@ const CarCake = () => {
     const [currentLay, setCurrentLay] = useState([])
 
     const [currentCr, setCurrentCr] = useState([])
-
-
 
     const addCurrentLayBan = () => {
         setCurrentLay([...currentLay, { nameLay: 'Банан', id: Date.now(), img: yel, descr: 'Нежнейший банановый слой, сделанный по исконным рецептам и прочее прочее прочее, еще немного текста для объёма, чтобы было понятно и наглядно, иначе нереалистично ' }])
@@ -154,10 +115,6 @@ const CarCake = () => {
         console.log(cakeArr, ' массив всего торта')
 
         console.log(`-------------`)
-
-
-
-
     });
 
 
@@ -169,17 +126,19 @@ const CarCake = () => {
 
 
 
-        <Container className='d-flex  flex-column justify-content-center align-items-center'>
+        <Container className='d-flex   flex-column  align-items-end'>
+            <h6 className='textCenter'>Конструктор слоёв</h6>
 
 
 
             {cakeArr.map((carousel) =>
-
                 <div className='margin-lay'>
+                    
                     <Carousel
                         className='p-2 position-relative zIn margin-dress  '
                         variant="dark"
                         indicators={false}
+                        onSelect={changeCream}
 
                     >
 
@@ -206,16 +165,14 @@ const CarCake = () => {
                     </Carousel>
 
 
-{/* 
+
                     <Carousel
                         key={carousel.id}
                         className='p-2 '
                         variant="dark"
                         indicators={false}
-                        onSelect={cakeArr.onSelect}
+                        onSelect={changeLay}
                     >
-
-
                         <Carousel.Item
                             interval={99999999}
                             style={{ cursor: ' pointer' }}
@@ -242,52 +199,33 @@ const CarCake = () => {
                         >
                             <Image width={300} height={50} src={br} />
                         </Carousel.Item>
-                    </Carousel> */}
-
-                    <div>
-                        {carousels.map((carousel) => (
-                            <Carousel
-                                key={carousel.id}
-                                onSelect={carousel.onSelect}
-                                className='p-2'
-                                variant='dark'
-                                indicators={false}
-                            >
-                                {carousel.items.map((item, index) => (
-                                    <Carousel.Item key={index}>
-                                        <h3>{item}</h3>
-                                    </Carousel.Item>
-                                ))}
-                            </Carousel>
-                        ))}
-                    </div>
+                    </Carousel>
+ 
                 </div>
 
 
             )
             }
-            <Row className='d-flex flex-row' >
-                <Col>
-                    <Button
-                        className='ml-1   '
-                        variant={'outline-success'}
-                        onClick={addCakeArr}
+            <div className='paddButPlusMin'>
+                <Row className='d-flex flex-row' >
+                    <Col>
+                        <Button
+                            className='ml-1   '
+                            variant={'outline-success'}
+                            onClick={() => { addCakeArr(); incrementLay() }}
+                        >+</Button>
+                    </Col>
+                    <Col>
 
-                    >+ </Button>
-                </Col>
-                <Col>
-
-                    <Button
-                        className='ml-1 '
-                        variant='outline-danger'
-                        onClick={removeCake}
-                    >
-                        -</Button>
-                </Col>
-
-
-            </Row>
-
+                        <Button
+                            className='ml-1 '
+                            variant='outline-danger'
+                            onClick={() => { removeCake();  decrementLay() }}
+                        >
+                            -</Button>
+                    </Col>
+                </Row>
+            </div>
             <Overlay target={target2.current} show={show} placement="right">
                 {({
                     placement: _placement,
@@ -338,7 +276,7 @@ const CarCake = () => {
 
 
 
-                        <Dropdown className=''>
+                        {/* <Dropdown className=''>
                             <Dropdown.Toggle>Изменить слой</Dropdown.Toggle>
                             <Dropdown.Menu style={{ margin: 0 }}>
                                 {layers.layers.map(layer =>
@@ -348,7 +286,7 @@ const CarCake = () => {
                                 <Button className='mx-2 mt-2' variant='outline-danger' onClick={removeCake} >Удалить  </Button>
 
                             </Dropdown.Menu>
-                        </Dropdown>
+                        </Dropdown> */}
 
 
                     </div>
@@ -379,15 +317,7 @@ const CarCake = () => {
                             height: 350,
                         }}
                     >
-
-                        {/* <div className=' mt-4'>
-                            <h5 className='text-center' style={{ color: 'black' }}> Крем нэйм</h5>
-                        </div>
-                        <Image width={300} height={50} src={dressBanana} />
-                        <h6 className=' text-center mt-3' style={{ color: 'black' }} >Описание </h6> */}
-
-
-
+ 
                         <h5 className=' text-center' style={{ color: 'black' }}>
                             {currentCr.filter(Cream =>
                                 (Cream.nameCr === 'Ваниль')
@@ -405,7 +335,7 @@ const CarCake = () => {
                         </h5>
 
 
-                        <Dropdown className='mt-3'>
+                        {/* <Dropdown className='mt-3'>
                             <Dropdown.Toggle>Изменить крем</Dropdown.Toggle>
                             <Dropdown.Menu style={{ margin: 0 }}>
                                 {layers.creams.map(cream =>
@@ -414,7 +344,7 @@ const CarCake = () => {
                                 <Button className='mx-2 mt-2' variant='outline-danger' >Удалить слой</Button>
 
                             </Dropdown.Menu>
-                        </Dropdown>
+                        </Dropdown> */}
 
 
                     </div>

@@ -11,8 +11,9 @@ const ConstrCake = () => {
         mt-5 
         border-secondary 
         bg-light
+        padddingBot
        '
-                style={{ width: 400, height: 350 }}>
+                style={{ width: 700, height: 350 }}>
                 <CarCake />
             </Card>
         </Container>
