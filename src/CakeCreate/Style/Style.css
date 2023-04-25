@@ -39,7 +39,7 @@
     position: fixed;
     margin-top: 21em;
     top: 200px;
-    padding-right: 250px;
+    padding-right: 80px;
 }
 
 .Butt_succes {
@@ -76,4 +76,13 @@
     justify-content: center;
     padding-right: 80px;
     padding-bottom: 30px;
+}
+
+.flexCont {
+    display: flex;
+    flex-direction: row;
+}
+
+.cardPad {
+    margin: 30px;
 }

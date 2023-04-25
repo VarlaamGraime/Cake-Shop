@@ -22,6 +22,8 @@ const CarCake = () => {
 
     const [countCake, setCountCake] = useState(-1)
 
+    const [priceCake, setPriceCake] = useState(0)
+
     function incrementLay() {
         setCountCake(countCake + 1)
     }
@@ -99,8 +101,27 @@ const CarCake = () => {
         setCurrentCr([...currentCr, { nameCr: 'Карамель', id: Date.now(), img: dressing, descr: 'Сочная карамельная начинка, сделанная по исконным рецептам и прочее прочее прочее, еще немного текста для объёма, чтобы было понятно и наглядно, иначе нереалистично ' }])
     }
 
+    function priceForCake() {
+        setPriceCake(0)
+        cakeArr.forEach(obj => {
+            console.log(` слой со вкусом ${obj.nameLay}, начинка  ${obj.nameCr}`);
+            if (obj.nameLay === 'Ягода') {
+                setPriceCake(prevPrice => prevPrice + 300);
+            
+            }
+            else if (obj.nameLay === 'банан') {
+                setPriceCake(prevPrice => prevPrice + 200);
+            
+            }
+            else if (obj.nameLay === 'сдоба') {
+                setPriceCake(prevPrice => prevPrice + 100);
+            
+            }
+        })
+    }
 
-    useEffect((selectedIndex) => {
+
+    useEffect(() => {
 
         if (currentLay.length > 1) {
             setCurrentLay(currentLay.slice(1))
@@ -115,7 +136,10 @@ const CarCake = () => {
         console.log(cakeArr, ' массив всего торта')
 
         console.log(`-------------`)
-    });
+
+    
+
+    } );
 
 
 
@@ -273,22 +297,6 @@ const CarCake = () => {
                             </h5>
                         </div>
 
-
-
-
-                        {/* <Dropdown className=''>
-                            <Dropdown.Toggle>Изменить слой</Dropdown.Toggle>
-                            <Dropdown.Menu style={{ margin: 0 }}>
-                                {layers.layers.map(layer =>
-                                    <Dropdown.Item key={layer.id}
-                                    >{layer.name}</Dropdown.Item>
-                                )}
-                                <Button className='mx-2 mt-2' variant='outline-danger' onClick={removeCake} >Удалить  </Button>
-
-                            </Dropdown.Menu>
-                        </Dropdown> */}
-
-
                     </div>
                 )
                 }
@@ -334,19 +342,6 @@ const CarCake = () => {
                             }
                         </h5>
 
-
-                        {/* <Dropdown className='mt-3'>
-                            <Dropdown.Toggle>Изменить крем</Dropdown.Toggle>
-                            <Dropdown.Menu style={{ margin: 0 }}>
-                                {layers.creams.map(cream =>
-                                    <Dropdown.Item key={cream.id}>{cream.name}</Dropdown.Item>
-                                )}
-                                <Button className='mx-2 mt-2' variant='outline-danger' >Удалить слой</Button>
-
-                            </Dropdown.Menu>
-                        </Dropdown> */}
-
-
                     </div>
                 )}
             </Overlay>
@@ -356,7 +351,8 @@ const CarCake = () => {
 
                 <button
                     className='Butt_succes'
-                >Собрать торт</button>
+                    onClick={priceForCake}
+                >Собрать торт {priceCake} </button>
             </div>
 
 

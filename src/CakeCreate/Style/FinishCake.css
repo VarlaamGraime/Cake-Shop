@@ -1,0 +1,17 @@
+.textHead {
+    margin-left: 30px;
+}
+
+.divTextHead {
+    margin-top: -150px;
+    margin-left: 80px;
+}
+
+.divCards {
+    display: flex;
+    flex-direction: row;
+}
+
+.cardStyle {
+    margin: 5px;
+}
